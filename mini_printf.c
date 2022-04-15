@@ -38,7 +38,7 @@ vpf_num_to_str(u32 a, int is_hex, int pad_len, int pad_char)
 	u32	base;
 	int	bufidx, i;
 
-	for (i = 0; i < sizeof(buf); i++) {
+	for (i = 0; i < (int)sizeof(buf); i++) {
 		buf[i] = pad_char;
 	}
 	base = 10;
@@ -56,7 +56,7 @@ vpf_num_to_str(u32 a, int is_hex, int pad_len, int pad_char)
 	} while (a > 0);
 
 	if (pad_len > 0) {
-		if (pad_len >= sizeof(buf)) {
+		if (pad_len >= (int)sizeof(buf)) {
 			pad_len = sizeof(buf) - 1;
 		}
 		if (bufidx < pad_len) {
